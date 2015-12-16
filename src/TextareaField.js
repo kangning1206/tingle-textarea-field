@@ -18,6 +18,7 @@ class TextareaField extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            value: props.value,
             height: null
         };
     }
@@ -42,9 +43,8 @@ class TextareaField extends React.Component {
                     className="tTextareaFieldContent tFC9"
                     style={style}
                     placeholder={placeholder}
-                    value={t.props.value}
+                    value={t.state.value}
                     readOnly={readOnly}
-                    rows={t.props.minRows}
                     onChange={t.handleChange.bind(t)}
                     onFocus={t.handleFocus.bind(t)}
                     onBlur={t.handleBlur.bind(t)}/>
@@ -57,8 +57,13 @@ class TextareaField extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        let t = this;
         if ('value' in nextProps) {
-            this._resize();
+            t.setState({
+                value: nextProps.value
+            }, function() {
+                t._resize();
+            });
         }
     }
 

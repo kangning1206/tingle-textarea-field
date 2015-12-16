@@ -19,6 +19,12 @@ class Demo extends React.Component {
         }
     }
 
+    componentDidMount() {
+        this.setState({
+            t1: "测试文本默认高度是否撑开测试文本默认高度是否撑开测试文本默认高度是否撑开测试文本默认高度是否撑开测试文本默认高度是否撑开测试文本默认高度是否撑开测试文本默认高度是否撑开测试文本默认高度是否撑开测试文本默认高度是否撑开"
+        });
+    }
+
     handleChange(value, e) {
         this.setState({
             t1: value
