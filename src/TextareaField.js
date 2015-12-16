@@ -72,7 +72,7 @@ class TextareaField extends React.Component {
     }
 
     handleChange(e) {
-        this._resize();
+        //this._resize();
         this.props.onChange(e.target.value, e);
     }
 
